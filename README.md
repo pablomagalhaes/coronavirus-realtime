@@ -1,5 +1,5 @@
 # coronavirus-realtime
-Coronavirus COVID-19 Global Cases In React Dashboard
+Coronavirus COVID-19 Global Cases In React Dashboard.
 
 
 # Coronavirus Dashboard In ReactJs
