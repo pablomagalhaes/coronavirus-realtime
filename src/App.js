@@ -1,11 +1,11 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-grid-system'
-import Tarjeta from './components/Tarjeta'
+import Card from './components/Card'
 import {Header} from 'semantic-ui-react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import Skeleton , { SkeletonTheme } from "react-loading-skeleton"
-import Tabla from './components/Tabla'
+import Tabela from './components/Tabela'
 
 export default class App extends React.Component{
     constructor(props){
@@ -26,7 +26,7 @@ export default class App extends React.Component{
                     type: 'pie'
                 },
                 title: {
-                    text: 'Totales Mundiales'
+                    text: 'Total in the world'
                 },
                 plotOptions: {
                     pie: {
@@ -56,7 +56,7 @@ export default class App extends React.Component{
                 },
                 
                 title: {
-                    text: 'Casos de Coronavirus por paises'
+                    text: 'Coronavirus cases by country'
                 },
                 xAxis: {
                     categories: [],
@@ -83,17 +83,17 @@ export default class App extends React.Component{
             options.series[0].data= [json.recovered.value,json.deaths.value, json.confirmed.value]
             let nombres=[
                 {
-                    name:"Recuperados",
+                    name:"Recovered",
                     y: json.recovered.value,
                     color: '#b5cc18'    
                 },
                 {
-                    name:"Muertes",
+                    name:"Deaths",
                     y: json.deaths.value,
                     color: '#db2828'
                 },
                 {
-                    name:"Activos",
+                    name:"Confirmed Cases",
                     y: json.confirmed.value - (json.recovered.value + json.deaths.value),
                     color: '#21ba45'
                 },
@@ -114,17 +114,17 @@ export default class App extends React.Component{
             })
             options2.series = [
                 {
-                    name: "Recuperados",
+                    name: "Recovered",
                     data: recovered,
                     color: '#b5cc18'
                 }, 
                 {
-                    name: "Muertes",
+                    name: "Deaths",
                     data: deaths,
                     color: '#db2828'
                 }, 
                 {
-                    name: "Activos",
+                    name: "Confirmed",
                     data: confirmed,
                     color: '#21ba45'
                 },
@@ -176,17 +176,17 @@ export default class App extends React.Component{
 
             options2.series = [
                 {
-                    name: "Recuperados",
+                    name: "Recovered",
                     data: recovered,
                     color: '#b5cc18'
                 }, 
                 {
-                    name: "Muertes",
+                    name: "Deaths",
                     data: deaths,
                     color: '#db2828'
                 }, 
                 {
-                    name: "Activos",
+                    name: "Confirmed",
                     data: confirmed,
                     color: '#21ba45'
                 },
@@ -209,7 +209,7 @@ export default class App extends React.Component{
                     <Col style={{marginTop: 30, marginBottom: 50}}>
                         {
                             !this.state.loading?
-                            <Header as = 'h1' style={{color: '#333333'}} textAlign= 'center'>Estadísticas Coronavirus</Header> : 
+                            <Header as = 'h1' style={{color: '#333333'}} textAlign= 'center'>Coronavirus COVID-19 / Global Cases</Header> : 
                             <div style={{textAlign: 'center'}}>
                                 <SkeletonTheme color={this.props.fondo} highlightColor="#cecece" duration={7}>
                                     <Skeleton height={40} width={400}/>
@@ -222,8 +222,8 @@ export default class App extends React.Component{
                 </Row>
                 <Row>
                     <Col md={3}>
-                        <Tarjeta
-                            texto="Activos"
+                        <Card
+                            texto="Total Confirmed"
                             cantidad = {this.state.activos}
                             loading = {this.state.loading}
                             fondo = '#21ba45'
@@ -231,8 +231,8 @@ export default class App extends React.Component{
                         />
                     </Col>
                     <Col md={3}>
-                        <Tarjeta
-                            texto="Recuperados"
+                        <Card
+                            texto="Total Recovered"
                             cantidad = {this.state.recuperados}
                             loading = {this.state.loading}
                             fondo = '#b5cc18'
@@ -240,8 +240,8 @@ export default class App extends React.Component{
                         />
                     </Col>
                     <Col md={3}>
-                        <Tarjeta
-                            texto="Muertos"
+                        <Card
+                            texto="Total Deaths"
                             cantidad = {this.state.muertes}
                             loading = {this.state.loading}
                             fondo = '#db2828'
@@ -249,7 +249,7 @@ export default class App extends React.Component{
                         />
                     </Col>
                     <Col md={3}>
-                        <Tarjeta
+                        <Card
                             texto="Total"
                             cantidad = {this.state.confirmados}
                             loading = {this.state.loading}
@@ -274,7 +274,7 @@ export default class App extends React.Component{
                         </div>
                     </Col>
                     <Col md={6}>
-                        <Tabla
+                        <Tabela
                             data = {this.state.paises}
                             pagina = {this.state.pagina}
                             paginar = {this.paginar}

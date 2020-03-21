@@ -4,7 +4,7 @@ import Skeleton , { SkeletonTheme } from "react-loading-skeleton"
 import CountUp from 'react-countup'
 
 
-export default class Tabla extends Component{
+export default class Tabela extends Component{
     constructor(props){
         super(props)
     }
@@ -18,11 +18,11 @@ export default class Tabla extends Component{
                     <Table celled inverted selectable>
                         <Table.Header>
                             <Table.Row>
-                                <Table.HeaderCell>Países</Table.HeaderCell>
-                                <Table.HeaderCell>Activos</Table.HeaderCell>
-                                <Table.HeaderCell>Recuperados</Table.HeaderCell>
-                                <Table.HeaderCell>Muertos</Table.HeaderCell>
-                                <Table.HeaderCell>Total</Table.HeaderCell>
+                                <Table.HeaderCell>Country</Table.HeaderCell>
+                                <Table.HeaderCell>Confirmed Cases</Table.HeaderCell>
+                                <Table.HeaderCell>Recovered</Table.HeaderCell>
+                                <Table.HeaderCell>Deaths</Table.HeaderCell>
+                                <Table.HeaderCell>Total Cases</Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
